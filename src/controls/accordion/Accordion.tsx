@@ -24,6 +24,10 @@ export class Accordion extends React.Component<IAccordionProps, IAccordionState>
     telemetry.track('ReactAccordion', {});
   }
 
+  public componentWillReceiveProps(nextProps) {
+    this.setState({ expanded: !nextProps.defaultCollapsed });
+  }
+
   public render(): React.ReactElement<IAccordionProps> {
     return (
       <div className={css(styles.accordion, this.props.className)}>
